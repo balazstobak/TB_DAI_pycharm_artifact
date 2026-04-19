@@ -1,5 +1,6 @@
-import datetime
+from datetime import datetime
 
+import datetime
 
 class Artifact:
     def __init__(self, name, date):
@@ -35,6 +36,14 @@ class Sculpture(Artifact):
     def is_old(self, limit=100):
         return self.calculate_age() > limit
 
+class Building(Artifact):
+    def __init__(self, name, date, architect, location):
+        super().__init__(name, date)
+        self.architect = architect
+        self.location = location
+
+    def __str__(self):
+        return f"{self.name} ({self.date}) - architect: {self.architect}, location: {self.location}"
 
 def give_name_artifact():
     return f"artifact name: {__name__}"
